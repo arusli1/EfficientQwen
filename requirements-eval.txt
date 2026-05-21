@@ -1,0 +1,8 @@
+# Heavy deps needed ONLY on the A10G dev box to run lm-eval against a
+# running vLLM. Skip on Mac dev.
+#
+# The target container already has these installed; we don't need to
+# bake them into the image.
+
+datasets>=2.18
+lm-eval>=0.4.11

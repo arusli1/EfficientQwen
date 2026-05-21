@@ -1,0 +1,24 @@
+# Keep build context lean. Weights are explicitly COPY'd via ARG WEIGHTS_DIR.
+.git
+.gitignore
+.dockerignore
+
+# Docs and dev cruft don't belong in the image
+docs/
+*.md
+results/
+image.tar.gz
+
+# Eval runs on the host, not inside the container
+eval/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/

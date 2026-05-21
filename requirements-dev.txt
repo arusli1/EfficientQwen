@@ -1,0 +1,11 @@
+# Host-only deps for download/build/submit scripts + tests.
+huggingface_hub>=0.26
+
+# Mock server for Mac heuristic eval
+fastapi>=0.115
+uvicorn>=0.30
+
+# Tests + lint
+pytest>=8
+pytest-timeout>=2
+ruff>=0.7

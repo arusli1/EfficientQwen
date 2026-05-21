@@ -1,0 +1,37 @@
+# Large / generated
+weights/
+image.tar.gz
+cache_import.tar.gz
+artifacts/
+.build_work.*/
+
+# Result/eval outputs are tracked selectively; ignore raw dated dumps
+results/**/*_run_*.json
+data/eval_runs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Secrets / local env
+.env
+.env.local
+*.local
+
+# Local working notes / scratch
+.claude/
+CLAUDE.md
+*.scratch.md
+scratch/
+archive/
+data/eval_runs/

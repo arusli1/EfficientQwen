@@ -1,0 +1,7 @@
+line-length = 100
+target-version = "py39"
+# Vendored harness + generated artifacts — don't lint
+exclude = ["eval/", "weights/", "results/", ".venv/"]
+
+[lint]
+select = ["E", "F", "W", "B", "UP", "SIM", "RUF"]
