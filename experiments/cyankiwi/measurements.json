@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "variant": "cyankiwi",
+  "weights_origin": "weights/cyankiwi (Qwen3.5-4B, AWQ-4bit / compressed-tensors W4A16)",
+  "config_env": "experiments/cyankiwi/config.env",
+  "status": "reference",
+  "status_note": "AWQ-4bit single-stream reference. MTP K=7 speculative decoding. Every other variant is measured against this configuration.",
+  "architecture": {
+    "base": "Qwen3.5-4B hybrid (32 layers: 24 Mamba2/GDN + 8 full-attention)",
+    "hidden_size": 2560,
+    "vocab_size": 248320,
+    "quantization": "compressed-tensors W4A16, group_size=32, symmetric, AWQ-calibrated on MLP Linear layers; lm_head and embeddings kept in FP16",
+    "speculative_decoding": "MTP (multi-token-predictor) head, K=7 candidates per step"
+  },
+  "local_measurements": [
+    {
+      "type": "mtp_k_sweep",
+      "summary": "Speculative depth sweep selects K=4 as the latency optimum (+8.6% over the K=7 default on the short+medium mix).",
+      "result_file": "results/mtp_k_sweep.json"
+    }
+  ],
+  "notes": "Hybrid attention layers sit at indices 3,7,11,15,19,23,27,31. Cold-start is cut from ~697s to ~156s by pre-baking the torch.compile cache and matching the inductor cache key across build/serve GPUs (scripts/_cache_patch.py, scripts/bake_cache.py)."
+}
