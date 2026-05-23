@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "mode": "v1-lightweight",
+  "model_name": "cyankiwi-seq8-clean-short",
+  "container_url": "http://localhost:8080",
+  "started_utc": "2026-05-25T08:43:19Z",
+  "wall_total_s": 8.8,
+  "cold_start_s": 0.0,
+  "prompt_len_sweep": {
+    "64": {
+      "n_prompt_tokens": 64,
+      "p50_ms": 1019.58,
+      "p95_ms": 1031.98,
+      "min_ms": 918.96,
+      "max_ms": 1031.98,
+      "tokens_out_median": 128,
+      "tps": 128.26,
+      "n_runs": 3
+    }
+  },
+  "slope_prefill_ms_per_1k": 0.0,
+  "slope_decode_intercept_ms": 0.0,
+  "mtp_by_category": {
+    "short": {
+      "accept_length": 5.2,
+      "drafts": 25,
+      "accepted": 105
+    },
+    "medium": {
+      "accept_length": 8.0,
+      "drafts": 32,
+      "accepted": 224
+    },
+    "long": {
+      "accept_length": 7.969,
+      "drafts": 32,
+      "accepted": 223
+    }
+  },
+  "kv_cache_usage_peak": 0.0,
+  "decode_share_overall": 0.7223,
+  "iteration_tokens_per_sec": 1735.0,
+  "inter_token_latency_p50_ms": null,
+  "ttft_p50_ms": null,
+  "preemptions_total": 0,
+  "gpu_mem_used_mb": 42321,
+  "verdict": {
+    "decode_bound": true,
+    "next_lever": "L_lmhead_quant",
+    "rationale": "decode_share=0.72 (\u22650.55) \u2192 decode-bound"
+  },
+  "git_sha": "66d53874",
+  "host": "478cf4b932cc"
+}
