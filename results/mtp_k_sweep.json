@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "measurement_type": "k_sweep",
+  "date": "2026-05-24",
+  "verdict": "Inverted-U peak at K=4 (avg_short_medium 3.3955 vs K=7 baseline 3.1255 = +8.64%). K=4 dominates across all 3 cats even comparing fresh-K=4 to warm-K=7 baseline.",
+  "results": {
+    "description": "MTP K sweep on cyankiwi (fresh vLLM per K, short+medium only except K=4 which also ran long).",
+    "k_values": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "per_k": {
+      "2": {
+        "short_speedup": 3.546,
+        "medium_speedup": 2.894,
+        "short_accept": 2.681,
+        "medium_accept": 2.539,
+        "avg_short_medium": 3.22
+      },
+      "3": {
+        "short_speedup": 3.62,
+        "medium_speedup": 2.968,
+        "short_accept": 3.264,
+        "medium_accept": 3.124,
+        "avg_short_medium": 3.294
+      },
+      "4": {
+        "short_speedup": 3.949,
+        "medium_speedup": 2.842,
+        "short_accept": 3.746,
+        "medium_accept": 3.433,
+        "avg_short_medium": 3.3955
+      },
+      "5": {
+        "short_speedup": 3.962,
+        "medium_speedup": 2.706,
+        "short_accept": 4.211,
+        "medium_accept": 3.762,
+        "avg_short_medium": 3.334
+      },
+      "6": {
+        "short_speedup": 3.966,
+        "medium_speedup": 2.568,
+        "short_accept": 4.448,
+        "medium_accept": 3.966,
+        "avg_short_medium": 3.267
+      },
+      "7": {
+        "short_speedup": 3.772,
+        "medium_speedup": 2.479,
+        "short_accept": 4.574,
+        "medium_accept": 4.159,
+        "avg_short_medium": 3.1255
+      }
+    },
+    "k4_all_cats": {
+      "short_speedup": 3.963,
+      "medium_speedup": 2.837,
+      "long_speedup": 2.567,
+      "avg_3cat": 3.1223
+    },
+    "verdict": "Inverted-U peak at K=4 (avg_short_medium 3.3955 vs K=7 baseline 3.1255 = +8.64%). K=4 dominates across all 3 cats even comparing fresh-K=4 to warm-K=7 baseline.",
+    "recommended_k": 4
+  }
+}
