@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "variant": "cyankiwi-seq8-mtp4-fp8kv",
+  "weights_origin": "weights/cyankiwi (identical weights; runtime flags only)",
+  "config_env": "experiments/cyankiwi-seq8-mtp4-fp8kv/config.env",
+  "status": "scaffolded",
+  "status_note": "Memory-optimized variant: cyankiwi-seq8-mtp4 plus an FP8 (E4M3) KV cache (kv-cache-dtype=fp8). Roughly halves KV-cache memory, freeing headroom for longer contexts and larger batches on a 24 GB A10G. Provided as a ready-to-serve config; not separately benchmarked.",
+  "notes": "Config delta vs cyankiwi-seq8-mtp4: adds VLLM_KV_CACHE_DTYPE=fp8. KV quantization affects only attention-cache reads, so quality impact is expected to be negligible."
+}
