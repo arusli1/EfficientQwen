@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "variant": "cyankiwi-seq8",
+  "weights_origin": "weights/cyankiwi (identical weights; runtime concurrency only)",
+  "config_env": "experiments/cyankiwi-seq8/config.env",
+  "status": "shipped",
+  "status_note": "Throughput-tuned reference (max_num_seqs=8). Same weights and quality as cyankiwi; raising concurrency lets the batched evals finish inside the per-task wall-clock budget. This is the configuration measured on the competition cloud.",
+  "cloud_measurement": {
+    "speedup_mean_arith": 3.447,
+    "quality": {
+      "mmlu_pro": {"score": 0.650, "floor": 0.621, "pass": true},
+      "ifeval": {"score": 0.833, "floor": 0.814, "pass": true},
+      "gpqa_diamond": {"score": 0.586, "floor": 0.630, "note": "near the GPQA-D floor; local full-pool mean ~0.64"}
+    }
+  },
+  "local_measurements": [
+    {
+      "type": "quality_full",
+      "summary": "GPQA-Diamond full pool (n=198) local: 0.641, Wilson CI [0.572, 0.706]. ~37% of thinking-mode traces hit the generation cap, suppressing the scored mean.",
+      "result_file": null
+    }
+  ],
+  "notes": "Config delta vs cyankiwi: max_num_seqs 1->8; cudagraph capture sizes 8 -> {8,16,24,32,40,48,56,64}; gpu_memory_utilization 0.90 -> 0.92. No quality knob (weights, quant, chat template) changed."
+}
