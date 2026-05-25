@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "variant": "cyankiwi-seq8-mtp4",
+  "weights_origin": "weights/cyankiwi (identical weights; runtime flags only)",
+  "config_env": "experiments/cyankiwi-seq8-mtp4/config.env",
+  "status": "measured",
+  "status_note": "Latency-optimized variant of cyankiwi-seq8: MTP K=4 (sweep optimum) + matched cudagraph capture + repetition_penalty=1.0. Local benchmarks show ~+8% average decode latency over the K=7 config at equal quality; weights and chat template are unchanged.",
+  "isolation_gate": {
+    "baseline_variant": "cyankiwi-seq8",
+    "baseline_mmlu_pro": 0.650,
+    "baseline_ifeval": 0.833,
+    "baseline_gpqa_d": 0.586,
+    "baseline_latency_short_ms": 633.0,
+    "baseline_latency_medium_ms": 1316.0,
+    "baseline_latency_long_ms": 3242.0,
+    "lever": "MTP K=4 + matched cudagraph capture + repetition_penalty=1.0",
+    "lever_predicted_lift_quality": "neutral (~0 pp) — runtime flags only",
+    "skip_pass_a_diagnostic": false
+  },
+  "local_measurements": [
+    {
+      "type": "latency_bench",
+      "summary": "scripts/bench_latency.py, n=10/warmup=3, cold-mixed. Average +8.1% over cyankiwi-seq8 (short +17.0%, medium +8.1%, long +1.2%).",
+      "result_file": null
+    },
+    {
+      "type": "quality_fast",
+      "summary": "10%-sample quality gate: MMLU-Pro 0.642 (floor 0.621) PASS, IFEval 0.862 (floor 0.814) PASS. Consistent with the quality-neutral expectation for a runtime-only change.",
+      "result_file": null
+    }
+  ],
+  "notes": "Config delta vs cyankiwi-seq8: num_speculative_tokens 7->4; cudagraph capture sizes {8..64} -> {5,10,...,40}; repetition_penalty default -> 1.0."
+}
